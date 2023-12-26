@@ -20,18 +20,18 @@ class LinkedList {
         if (head == null) {
             head = newNode;
         } else {
-            Node current = head;
-            while (current.next != null) {
-                current = current.next;
-            }
-            current.next = newNode;
+            newNode.next = head;
+            head = newNode;
         }
     }
 
     public void displayList() {
         Node current = head;
         while (current != null) {
-            System.out.print(current.data + " ");
+            System.out.print(current.data);
+            if (current.next != null) {
+                System.out.print("->");
+            }
             current = current.next;
         }
         System.out.println();
@@ -42,13 +42,13 @@ public class Main {
     public static void main(String[] args) {
         LinkedList linkedList = new LinkedList();
 
-        // Adding nodes to the linked list
-        linkedList.addNode(56);
-        linkedList.addNode(30);
+        // Creating the linked list with the specified sequence
         linkedList.addNode(70);
+        linkedList.addNode(30);
+        linkedList.addNode(56);
 
         // Displaying the linked list
-        System.out.println("Linked List: ");
+        System.out.println("LinkedList Sequence: ");
         linkedList.displayList();
     }
 }
