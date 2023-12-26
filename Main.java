@@ -44,6 +44,14 @@ class LinkedList {
         }
     }
 
+    public void pop() {
+        if (head != null) {
+            head = head.next;
+        } else {
+            System.out.println("LinkedList is empty. Cannot pop.");
+        }
+    }
+
     public void displayList() {
         Node current = head;
         while (current != null) {
@@ -63,10 +71,11 @@ public class Main {
 
         // Creating the linked list with the specified sequence
         linkedList.appendNode(56);
+        linkedList.appendNode(30);
         linkedList.appendNode(70);
 
-        // Inserting 30 between 56 and 70
-        linkedList.insertNode(30, 56);
+        // Deleting the first element (pop)
+        linkedList.pop();
 
         // Displaying the linked list
         System.out.println("Final Sequence: ");
