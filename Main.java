@@ -28,6 +28,22 @@ class LinkedList {
         }
     }
 
+    public void insertNode(int newData, int afterData) {
+        Node newNode = new Node(newData);
+        Node current = head;
+
+        while (current != null && current.data != afterData) {
+            current = current.next;
+        }
+
+        if (current != null) {
+            newNode.next = current.next;
+            current.next = newNode;
+        } else {
+            System.out.println("Node with data " + afterData + " not found in the list.");
+        }
+    }
+
     public void displayList() {
         Node current = head;
         while (current != null) {
@@ -47,11 +63,13 @@ public class Main {
 
         // Creating the linked list with the specified sequence
         linkedList.appendNode(56);
-        linkedList.appendNode(30);
         linkedList.appendNode(70);
 
+        // Inserting 30 between 56 and 70
+        linkedList.insertNode(30, 56);
+
         // Displaying the linked list
-        System.out.println("LinkedList Sequence: ");
+        System.out.println("Final Sequence: ");
         linkedList.displayList();
     }
 }
