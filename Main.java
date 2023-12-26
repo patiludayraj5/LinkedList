@@ -15,13 +15,16 @@ class LinkedList {
         this.head = null;
     }
 
-    public void addNode(int data) {
+    public void appendNode(int data) {
         Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
         } else {
-            newNode.next = head;
-            head = newNode;
+            Node current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = newNode;
         }
     }
 
@@ -43,9 +46,9 @@ public class Main {
         LinkedList linkedList = new LinkedList();
 
         // Creating the linked list with the specified sequence
-        linkedList.addNode(70);
-        linkedList.addNode(30);
-        linkedList.addNode(56);
+        linkedList.appendNode(56);
+        linkedList.appendNode(30);
+        linkedList.appendNode(70);
 
         // Displaying the linked list
         System.out.println("LinkedList Sequence: ");
